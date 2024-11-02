@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Ajouter un Don</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+  <h2>Ajouter un Don</h2>
+  <form action="#" th:action="@{/dons/add}" th:object="${don}" method="post">
+    <div class="form-group">
+      <label for="donateur">Donateur</label>
+      <select id="donateur" name="donateur" th:field="*{donateur}" class="form-control">
+        <option th:each="donateur : ${donateurs}" th:value="${donateur.id}"
+                th:text="${donateur.nom}"></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="montant">Montant</label>
+      <input type="number" id="montant" name="montant" th:field="*{montant}" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="campagne">Campagne</label>
+      <select id="campagne" name="campagne" th:field="*{campagne}" class="form-control">
+        <option th:each="campagne : ${campagnes}"
+                th:value="${campagne.id}"
+                th:text="${campagne.nom}"></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" th:field="*{date}" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Enregistrer</button>
+  </form>
+</div>
+</body>
+</html>

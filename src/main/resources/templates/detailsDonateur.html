@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Détails du Donateur</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Gestion des Dons</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="/donateurs/list">Donateurs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dons/list">Dons</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/campagnes/list">Campagnes</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Donor Information Section -->
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <div class="row align-items-center">
+        <div class="col-md-2 text-center">
+          <img src="https://via.placeholder.com/100" alt="Photo du Donateur" class="rounded-circle img-thumbnail">
+        </div>
+        <div class="col-md-10">
+          <h3 class="card-title mb-1" th:text="${donateur.nom}"></h3>
+          <p class="mb-0 text-muted" th:text="'Email: ' + ${donateur.email}"></p>
+          <p class="mb-0 text-muted" th:text="'Adresse: ' + ${donateur.adresse}"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation List Section -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">Liste des Dons</h5>
+    </div>
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+        <tr>
+          <th>Date</th>
+          <th>Montant</th>
+          <th>Campagne</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="don : ${donateur.dons}">
+          <td th:text="${#temporals.format(don.date, 'dd/MM/yyyy')}"></td>
+          <td th:text="${don.montant + ' DH'}"></td>
+          <td th:text="${don.campagne.nom}"></td>
+          <td>
+            <div class="btn-group" role="group">
+              <a th:href="@{/dons/edit/{id}(id=${don.id})}" class="btn btn-outline-warning btn-sm">Modifier</a>
+              <a th:href="@{/dons/delete/{id}(id=${don.id})}" class="btn btn-outline-danger btn-sm">Supprimer</a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <div class="text-center mt-4">
+    <a href="/donateurs/list" class="btn btn-secondary">← Retour à la liste des Donateurs</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

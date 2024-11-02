@@ -1,54 +1,10 @@
 # Système de Gestion des Commandes de Fournitures et des Fournisseurs
 
-## Description
+# Description
 Ce projet est une application web développée en Java avec le framework Spring Boot. Elle permet à une entreprise de gérer les commandes de fournitures auprès de différents fournisseurs. L'application offre des fonctionnalités de gestion des fournisseurs et des fournitures associées, ainsi qu'une interface utilisateur conviviale pour visualiser et manipuler ces données.
 
-## Diagramme de Classes
-Le diagramme de classes ci-dessous illustre la structure des entités principales de l'application : **Fournisseur** et **Fourniture**.
-                         +---------------------------+
-                         |       Fournisseur         |
-                         +---------------------------+
-                         | - id : Long               |
-                         | - nom : String            |
-                         | - adresse : String        |
-                         +---------------------------+
-                         | + getId() : Long          |
-                         | + setId(id : Long)        |
-                         | + getNom() : String       |
-                         | + setNom(nom : String)    |
-                         | + getAdresse() : String   |
-                         | + setAdresse(adresse : String)|
-                         +---------------------------+
-                                  |
-                                  | 1
-                                  |
-                                  |
-                                  | *
-                         +---------------------------+
-                         |       Fourniture          |
-                         +---------------------------+
-                         | - id : Long               |
-                         | - nom : String            |
-                         | - quantite : int          |
-                         | - prix : double           |
-                         | - fournisseur : Fournisseur|
-                         +---------------------------+
-                         | + getId() : Long          |
-                         | + setId(id : Long)        |
-                         | + getNom() : String       |
-                         | + setNom(nom : String)    |
-                         | + getQuantite() : int     |
-                         | + setQuantite(qte : int)  |
-                         | + getPrix() : double      |
-                         | + setPrix(prix : double)  |
-                         | + getFournisseur() : Fournisseur|
-                         | + setFournisseur(f : Fournisseur)|
-                         +---------------------------+
 
-
-
-
-### Fonctionnalités
+## Fonctionnalités
 - **Gestion des Fournisseurs** :
   - Ajouter un nouveau fournisseur avec son nom et son adresse.
   - Consulter la liste des fournisseurs.

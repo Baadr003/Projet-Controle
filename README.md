@@ -51,3 +51,8 @@ Ce projet est une application web développée en Java avec le framework Spring 
 - **Maven** : Pour gérer les dépendances et construire le projet.
 - **Base de données** : Configurez une base de données compatible avec Spring Data JPA (par exemple, MySQL ou H2) et assurez-vous de mettre à jour les informations de connexion dans `application.properties`.
 
+### Video Démonstrative
+
+
+https://github.com/user-attachments/assets/3edf1650-6598-49f2-9873-5aa9f3942f75
+
